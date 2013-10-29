@@ -402,7 +402,9 @@ class VMwareDriver
 
         vivm.set_pcibridge(pcibridge.text) if pcibridge
 
-        vivm.set_boot(dfile_hash)
+        # Multi boot not working for vmware
+        # See http://dev.opennebula.org/issues/538
+        # vivm.set_boot(dfile_hash)
 
         # Append the raw datavmx to vmx file
         metadata   = REXML::XPath.first(dfile_hash, "/domain/metadata/datavmx")
